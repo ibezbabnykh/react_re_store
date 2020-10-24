@@ -1,18 +1,18 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import Spinner from '../spinner';
-
-import ErrorBoundary from '../error-boundary';
+import { HomePage, CartPage } from '../../routers';
+import ShopHeader from '../shop-header';
 
 function App() {
   return (
-    <ErrorBoundary>
-      <div className="App">
-        Hello
-        <Spinner />
-      </div>
-    </ErrorBoundary>
-
+    <main role="main" className="main">
+        <ShopHeader numItems={5} total={210}/>
+        <Switch>
+          <Route path="/" component={HomePage} exact />
+          <Route path="/cart" component={CartPage} />
+        </Switch>
+    </main>
   );
 }
 
